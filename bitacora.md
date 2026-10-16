@@ -256,3 +256,39 @@ Porque el rebase reescribe la historia y cambia los identificadores hash
 de los commits. Lo que implica causar conflictos para todos los demás.
 
 ## 🧯 Misión 8 — Deshacer: `revert`, `reset`, `reflog`
+
+- `revert` vs `reset`: ¿cuál usas en una rama **compartida** y por qué?
+
+Pues `revert` lo que hace es volver al estado anterior de un commit
+de una manera especial, porque hace un nuevo commit revirtiendo los
+cambios y pone estos en estado staging. Mientras que `reset` borra al
+completo los cambios añadidos de la rama. Por lo que cuando usas una
+rama compartida será mejor revert, ya que encima este se aplica como
+si fuese un commit completamente nuevo.
+
+- `--soft` vs `--mixed` vs `--hard`: una frase cada uno.
+
+`--soft`: Mueve el puntero de la rama al commit indicado, pero mantiene 
+todos tus cambios intactos en el staging area listos para un nuevo commit.
+
+`--mixed` (por defecto): Mueve el puntero y deja los cambios en tu 
+directorio de trabajo, pero los saca del staging area (deshace el git add).
+
+`--hard`: Mueve el puntero y borra por completo todos tus cambios tanto 
+del staging area como de tu código local, dejando el proyecto 
+exactamente igual que en ese commit.
+
+- ¿Qué es el `reflog` y cuánto tiempo guarda las cosas?
+
+Es un historial interno de Git que registra cada movimiento del puntero 
+HEAD. Por defecto, Git guarda los registros del reflog durante 90 días 
+antes de borrarlos definitivamente en sus tareas de limpieza automática.
+
+- **Pregunta de verdad:** ¿existe algo en Git que pierdas para siempre tras un commit?
+
+No, lo único que se podría hacer que pierdas algo tras un commit es
+esperar más de 90 días o si forzases la limpieza profunda del git. Pero
+por defecto no se va a borrar nada para siempre de un commit.
+
+## 🎒 Misión 9 — `stash`: la interrupción
+
