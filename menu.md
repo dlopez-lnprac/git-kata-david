@@ -7,6 +7,7 @@
 - Sopa
 
 ## Segundo
+- Pizza con piña
 - Pollo
 
 ## Postre
