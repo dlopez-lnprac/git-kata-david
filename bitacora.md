@@ -128,3 +128,67 @@ registro de estos.
 
 ## 📡 Misión 5 — `fetch` vs `pull` (demuéstralo, no lo recites)
 
+- (A)
+```
+0299beb (HEAD -> main, origin/main, origin/HEAD) Bitacora misión 4
+```
+
+- (B)
+```
+0299beb (HEAD -> main, origin/main, origin/HEAD) Bitacora misión 4
+```
+
+- (C)
+```
+0299beb (HEAD -> main) Bitacora misión 4
+```
+
+- (D)
+```
+b650107 (origin/main, origin/HEAD) Update README.md
+```
+
+- (E)
+```
+En la rama main
+Tu rama está detrás de 'origin/main' por 1 commit, y puede ser avanzada rápido.
+  (usa "git pull" para actualizar tu rama local)
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que será confirmado)
+        .idea/
+
+no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+```
+
+- (F)
+```
+b650107 (HEAD -> main, origin/main, origin/HEAD) Update README.md
+```
+
+- Después del `fetch`, ¿cambió tu `main`? ¿Cambió `origin/main`?
+
+Únicamente cambió `origin/main` porque su último commit conocido
+cambió de la "0299beb Bitacora misión 4" a "b650107 Update README.md".
+Luego también cambiaron los marcadores, pero como tal solo cambió
+`origin/main`.
+
+- ¿Qué es exactamente `origin/main`? ¿Está en tu disco o en GitHub?
+
+Esta en ambos, pero lo de mi disco es solo una copia con la última
+posición conocida del GitHub.
+
+- Completa: `git pull` = `git ______` + `git ______`
+
+Es `git pull` = `git fetch` + `git merge`. El primero descarga los
+cambios del servidor y el segundo los fusiona automáticamente con
+la rama local.
+
+- ¿Cuándo usarías `fetch` solo, sin `pull`?
+
+Se usa por si quieres revisar previamente el trabajo de compañeros
+antes de fusionarlo con el tuyo, que sería lo óptimo para evitar 
+posibles problemas.
+
+## 💥 Misión 6 — El conflicto (rebase de verdad)
+
