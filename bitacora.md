@@ -71,3 +71,36 @@ trabajo en local.
 
 ## 🧹 Misión 3 — `squash`: la que no hiciste en CMS Jr.
 
+- Pega el `git log --oneline` de antes y de después.
+¿Cuántos commits quedan? ¿Se perdió algún cambio del fichero?
+
+Quedan unos 3 commits. Antes estaban:
+
+```
+c6229d4 (HEAD -> feature/1-primeros-platos) Add pumpkin cream to starters
+3683490 asdf
+cf49657 fix
+32c31c4 wip
+440dabc (origin/main, origin/HEAD, main) Add base menu
+d755315 Initial commit
+```
+
+Y ahora quedan:
+
+```
+fa64a45 (HEAD -> feature/1-primeros-platos) Add starters section to the daily menu
+440dabc (origin/main, origin/HEAD, main) Add base menu
+d755315 Initial commit
+```
+
+Pero no es que se haya perdido algún cambio de los anteriores commits,
+simplemente se ha reducido a un solo commit juntandolos todos.
+
+- ¿Por qué un revisor prefiere 1 commit claro a 4 commits "wip"?
+
+Porque, a parte de que los commits simples como "wip" ensucian y amplian más de la
+cuenta el historial, se hace más facil de comprobar un único commit con un mensaje
+claro que describa lo que de verdad se ha hecho.
+
+## 🔀 Misión 4 — PR y merge
+
