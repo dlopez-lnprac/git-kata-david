@@ -1,6 +1,9 @@
-#Menú del día
+# Menú del día
 
-##Primero
+## Primero
+- Crema de calabaza (vegana)
+- Gazpacho
+- Ensalada
 - Sopa
 
 ## Segundo
