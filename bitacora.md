@@ -104,3 +104,27 @@ claro que describa lo que de verdad se ha hecho.
 
 ## 🔀 Misión 4 — PR y merge
 
+- Pega el grafo.
+
+```
+*   770eb5c (HEAD -> main, origin/main, origin/HEAD) Merge pull request #2 from dlopez-lnprac/feature/1-primeros-platos
+|\  
+| * 128d780 (origin/feature/1-primeros-platos, feature/1-primeros-platos) Bitacora
+* | b856977 Merge pull request #1 from dlopez-lnprac/feature/1-primeros-platos
+|\| 
+| * fa64a45 Add starters section to the daily menu
+|/  
+* 440dabc Add base menu
+* d755315 Initial commit
+```
+
+- ¿Aparece un "commit de merge"? ¿Qué es y por qué existe?
+
+Aparecen dos de hecho por un error con la bitacora. Es un commit especial que se crea
+automáticamente cuando unes dos ramas que se habían separado previamente. Existe por
+varias razones, puede unir líneas de trabajo paralelo y conservar el historial de
+ambas. Y si por ejemplo hubiese conflicto entre ambas ramas el commit merge tendría
+registro de estos.
+
+## 📡 Misión 5 — `fetch` vs `pull` (demuéstralo, no lo recites)
+
