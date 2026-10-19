@@ -314,3 +314,93 @@ referencia `.git/refs/stash` y en el historial de registros
 
 ## 🍒 Misión 10 — `cherry-pick`: un commit suelto
 
+- ¿El hash del commit cherry-pickeado es el mismo que el original? ¿Por qué?
+
+No es el mismo porque no tiene el mismo identificador hash.
+Simplemente coge los cambios y los aplica haciendo un nuevo 
+commit.
+
+- ¿Cuándo usarías cherry-pick en vez de merge? (pista: piensa en un hotfix)
+
+En el caso de que hubiese un error urgente de arreglar se podría
+hacer cherry-pick del commit del hotfix para ese error sin
+necesidad de fusionar varias ramas.
+
+## 🙈 Misión 11 — `.gitignore`
+
+- ¿Por qué `.env` nunca va al repo?
+
+Porque el fichero .env puede contener contraseñas de bases de datos,
+claves de API o claves secretas de JWT o cifrado. Si se subiese
+esto a un repositorio público o privado (en el que hubiese más
+gente) cualquiera podría aprovecharse de estos.
+
+- ⚠️ **La trampa:** si un fichero YA está trackeado, añadirlo al `.gitignore` **no lo saca**. ¿Qué comando hace falta? (pista: `git rm --??????`)
+
+Hace falta el comando: `git rm --cached`.
+
+- Si subes una contraseña por error y luego haces un commit borrándola, ¿está a salvo? **¿Por qué no?**
+
+No, no está a salvo porque en git se mantiene un historial así que
+seguiría estando en uno de los commits o versiones pasadas. Se
+debería borrar el historial o cambiar la clave/contraseña de
+immediato.
+
+## 🔍 Misión 12 — Investigar
+
+Una frase por comando: ¿para qué lo usarías en el día a día?
+
+```
+git log --oneline --graph --all --decorate
+```
+Como este da un grafo completo de la rama lo usaría para ver se
+han hecho a main y desde donde a parte de comprobar si se ha
+mantenido una estructura ordenada durante todo ese proceso.
+```
+git show <hash>
+```
+Este te devuelve información específica del un commit en concreto
+lo usaría para ver la descripción completa de algún commit y el
+autor. A parte, claro esta, de los cambios que se hayan hecho en
+ese commit.
+```
+git diff main..feature/2-postre-tarta
+```
+Este obviamente lo usaría para ver las diferencias entre dos ramas
+siempre y cuando estas ramas no estén demasiado desactualizadas
+entre ellas.
+```
+git blame menu.md
+```
+Lo usaría para ver en que commits ha sido añadida cierta
+información de un archivo.
+```
+git log -p menu.md
+```
+Lo usaría para ver el proceso al que ha estado sometido un archivo.
+
+## 🏷️ Misión 13 — Tag y Release
+
+- `git tag v1.0.0` vs `git tag -a v1.0.0 -m "..."`: ¿diferencia? (ligero vs anotado)
+
+El primero, `git tag v1.0.0`, es un simple marcador que no guarda
+nada adicional. En cambio, `git tag -a v1.0.0 -m "..."` crea un
+objeto completo dentro de Git que puede guardar autor, correo,
+fecha e incluso se puede firmar digitalmente.
+
+- ¿Por qué un tag y no el nombre de la rama para marcar una versión?
+
+Las ramas se mueven constantemente avanzando y añadiendo cosas,
+mientras que un tag se mantiene en su sitio quedándose estático
+con ese código.
+
+- SemVer: has arreglado un bug → ¿`v1.0.1`, `v1.1.0` o `v2.0.0`?
+
+Sería `v1.0.1`, ya que al parecer en el versionado semántico 
+(SemVer) el formato es: `MAJOR.MINOR.PATCH`.
+
+MAJOR (1.x.x): Cambios incompatibles o rupturas con versiones anteriores (breaking changes).
+
+MINOR (x.1.x): Nuevas funcionalidades añadidas de forma compatible (sin romper nada).
+
+PATCH (x.x.1): Corrección de errores (bug fixes) compatibles.
