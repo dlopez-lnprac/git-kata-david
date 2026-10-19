@@ -292,3 +292,25 @@ por defecto no se va a borrar nada para siempre de un commit.
 
 ## 🎒 Misión 9 — `stash`: la interrupción
 
+- ¿Qué pasó exactamente al intentar cambiar de rama sin commitear?
+
+Me dejó cambiar de rama, pero los cambios que tenía hechos se
+movieron conmigo a main.
+
+- `git stash pop` vs `git stash apply`: ¿diferencia?
+
+Ambos comandos sirven para recuperar lo previamente guardado en el
+"stash". La diferencia es que `git stash apply` devuelve los
+cambios, pero se los guarda también como una copia en el stash por
+si los quieres volver a usar y el `git stash pop` no lo hace; solo
+lo devuelve y lo elimina del "stash".
+
+- ¿Dónde se guarda lo del stash?
+
+Al parecer el stash se guarda dentro de la carpeta oculta .git
+del proyecto. Concretamente se almacena internamente en la
+referencia `.git/refs/stash` y en el historial de registros
+`.git/logs/refs/stash`.
+
+## 🍒 Misión 10 — `cherry-pick`: un commit suelto
+
